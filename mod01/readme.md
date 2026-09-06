@@ -10,8 +10,8 @@ Tein tehtävät 2 loppuun ja aloitin tehtävän 3.
 ## Moduuli 3
 Tein tehtävän 3 ja 4, oli hieman haastavaa löytää peliini nimi. 
 
-
-
+## Moduuli 4
+Tein tehtävät 5 ja 6, mielestäni 5 viimeinen tehtävä oli vaikea sekä myös hieman 6 tehtävät.
 
 
 
