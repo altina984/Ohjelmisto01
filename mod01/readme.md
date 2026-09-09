@@ -13,6 +13,9 @@ Tein tehtävän 3 ja 4, oli hieman haastavaa löytää peliini nimi.
 ## Moduuli 4
 Tein tehtävät 5 ja 6, mielestäni 5 viimeinen tehtävä oli vaikea sekä myös hieman 6 tehtävät.
 
+## Moduuli 5 
+Tein tehtävät 7 mielestäni olivat hieman haastavia. 
+
 
 
 
@@ -39,3 +42,12 @@ else
 jos laittaa vikaan elif ei tarvi boolien
 on väliä mihin järjestykseen laitat numerot
 jakojännös %
+lasketaan myös väli strl
+
+kertaa 0 sopis myös 
+tai kerta kerta=1
+
+while kerta kerta=1 <= 5:
+else ei tulosta jos on break
+
+parempi käyttää else kun on vain kaksi 
