@@ -16,6 +16,8 @@ Tein tehtävät 5 ja 6, mielestäni 5 viimeinen tehtävä oli vaikea sekä myös
 ## Moduuli 5 
 Tein tehtävät 7 mielestäni olivat hieman haastavia. 
 
+## Moduuli 6
+Tein tehtävät 8 mielestäni olivat helpompia kuin aikaisemmat.
 
 
 
