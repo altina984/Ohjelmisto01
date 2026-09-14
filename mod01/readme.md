@@ -53,3 +53,4 @@ while kerta kerta=1 <= 5:
 else ei tulosta jos on break
 
 parempi käyttää else kun on vain kaksi 
+#https://www.w3schools.com/Python/python_ref_tuple.asp  
