@@ -19,3 +19,12 @@ import random
 #luku = random.randint (1,3)
 #if luku == 1: 
    # print(input('Nyt tuli {luku},{luku}'))
+
+# luku1=4
+# luku2=8
+# luku3=9
+# keskiarvo = (4+8+9) / 3
+# print(luku1 + luku2)
+# print(luku3 *4)
+# print(keskiarvo)
+# print(type(luku1))
