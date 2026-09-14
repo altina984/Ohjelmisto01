@@ -54,3 +54,61 @@ else ei tulosta jos on break
 
 parempi käyttää else kun on vain kaksi 
 #https://www.w3schools.com/Python/python_ref_tuple.asp  
+
+#import math
+#num= math.pi
+#print(num)
+
+#print(f'{num: .2f}')
+#print(f'{num: 10.2f}') kentän leveys 20 ja 30
+
+
+
+#num='83sdy'
+#print(f'{num:s}')
+
+#num=20
+#print(f'{num:8d}')
+#T=True
+#F=False
+
+#print(T or T and F)
+#print(not T and F)
+
+#def f(x = 3, y= 4):
+    #z =x + y
+    #return z
+
+
+
+#print(f(2,3))
+#print(f([1,2,3],[4,5,6]))
+
+#print(f())
+
+#while True: break ja for
+
+#for num in range(10):
+ # print(num)
+  #if num == 5:
+  #  break
+
+#for num in range(10):
+ #if num == 5:
+    #break
+ #print(num)
+
+
+def f(*args):
+     print(args)
+    #for item in args:
+       # print(item)
+f(2, 3)
+import this
+
+suluissa 2 lasketaan yhdeksi
+0 ei voi jakaa 
+
+not 
+and 
+or
