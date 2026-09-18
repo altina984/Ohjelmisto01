@@ -112,3 +112,9 @@ suluissa 2 lasketaan yhdeksi
 not 
 and 
 or
+
+r1 instanssi
+
+properties adjektiivi
+methods verbs
+self voi olla mikä hyvänsä
