@@ -22,8 +22,8 @@ class Lehti(Julkaisu):
         print("Lehden nimi:", self.nimi)
         print("Päätoimittaja:", self.paatoimittaja)
 
-lehti=Lehti("Aku Ankka", "Aki Hyppää")
-kirja=Kirja("Hytti n:o 6", "Rosa Liksom", 200)
+lehti=Lehti("Maija", "Moikkaa")
+kirja=Kirja("Aku Ankka", "T", 200)
 lehti.tulosta_tiedot()
 print()
 kirja.tulosta_tiedot()
