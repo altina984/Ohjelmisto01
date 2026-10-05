@@ -8,6 +8,7 @@ from colorama import Fore, Style
 with open ("peliprojekti/intro.txt", "r", encoding="utf-8") as file:
     log_in= file.read()
     print(log_in)
+   
 
 avain = Esine("Avain","Sininen avain jossa on tähti.", '15g' + Fore.GREEN)
 kirja = Esine("Kirja", "Kirjassa löytyy tietoa ja vihjeitä.", '500g' + Fore.GREEN) 
@@ -28,11 +29,25 @@ def tee_kartta():
     roskapostikuilu.lisaa_reitti("1", koodilaakso)
     return koodilaakso, pixelimaa, muistivuoto, roskapostikuilu
 
+def lataa_peli():
+   with open("tallenna.txt", "r") as file:
+     tiedot = file.read().split("\n")
+
+     nimi= tiedot[0]
+     ika= int(tiedot[1])
+     huone= tiedot[2]
+     tavarat = tiedot[3:]
+
+     return nimi, ika, huone, tavarat
+
 print(Fore.CYAN + "1. Uusi peli")
 print("2. Jatka tallennettua peliä")
+
 valinta = input("Valitse: ")
 
-if valinta == "2":
+if valinta =="1":
+   print('uusi peli')
+elif valinta == "2":
    nimi, ika, tallennettu_huone, tavarat = lataa_peli()
    print("Tallennettu peli ladattu!")
 
