@@ -119,3 +119,10 @@ pl.lisaa(b2)
 print(pl.munlista)
 
 
+import json
+
+li1 = [2, 6, 'hello', (3, 6), [5, 6]]
+
+with open("muut.json", "w") as tiedosto:
+  json.dump(li1, tiedosto)
+    
