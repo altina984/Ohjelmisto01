@@ -1,1 +1,9 @@
-bjhgj
+PELIN OHJEET
+
+Pystyt liikkua jatkuvasti muissa maissa.
+Jokaisessa maassa saattaa olla esineitä piilossa, jotka sinun täytyy löytää.
+Pystyt nähdä kerätyt esineet painamalla inventaariota.
+Voit tallentaa peli halutessasi sekä lopettaa.
+Tallentaessasi pelin voit palata takaisin kesken jääneeseen peliin. 
+
+Pidä hauskaa pelatessasi!

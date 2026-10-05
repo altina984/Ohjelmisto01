@@ -2,13 +2,12 @@ from pelaaja import Pelaaja
 from huone import Huone
 from esine import Esine
 
-with open ("intro.txt", "r") as file:
+with open ("peliprojekti/intro.txt", "r", encoding="utf-8") as file:
     log_in= file.read()
     print(log_in)
 
 avain = Esine("Avain","Sininen avain jossa on tähti.", '15g')
-# kartta = Esine("Kartta","kartta on täynnä reittejä.", 50,'g') 
-kirja = Esine("Kirja", "Kirjassa lukee miten päästä pois muistivuodolta.", '500g' ) 
+kirja = Esine("Kirja", "Kirjassa löytyy tietoa ja vihjeitä.", '500g' ) 
 kirje = Esine("Kirje", "joka on hukkunut roskaposteihin ja siinä on tärkeää tietoa.", '40g')
 
 def tee_kartta():
@@ -68,7 +67,7 @@ else:
             print("Tehtäväsi on löytää takaisin kotiin.")
 
         def lue_ohjeet():
-         with open ("ohjeet.txt", "r") as file:
+         with open ("peliprojekti/ohjeet.txt", "r", encoding="utf-8") as file:
              print(file.read())
 
         def tutki_esine(esine):
