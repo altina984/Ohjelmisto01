@@ -1,14 +1,36 @@
+from pelaaja import Pelaaja
+from huone import Huone
+from esine import Esine
+
 with open ("intro.txt", "r") as file:
-    log_in= file.read()
-    print(log_in)
+ log_in= file.read()
+ print(log_in)
 
-with open ("ohjeet.txt", "r") as file:
-    ohjeet= file.read()
-    print(ohjeet)
+avain = Esine("Avain","sininen avain jossa on tähti", 0.1)
+kartta = Esine("Kartta","kartta on täynnä reittejä", 0.2)  
 
-def aloita_peli():
-    print("Peli alkaa!")
-    return
+def tee_kartta():
+    koodilaakso = Huone("Koodilaakso","Olet keskellä Koodilaakso.")
+    pixelimaa = Huone("Pixelimaa","Olet oudossa maailmassa, joka on täynnä värejä.")
+    muistivuoto = Huone("Muistivuoto","Olet sekavassa paikassa, jossa on paljon muistia.")
+    roskapostikuilu = Huone("Roskapostikuilu","Olet paikassa, jossa on maailman roskapostit.")
+    
+    koodilaakso.lisaa_reitti("1",pixelimaa)
+    koodilaakso.lisaa_reitti("2",muistivuoto)
+    koodilaakso.lisaa_reitti("3",roskapostikuilu)
+    
+    pixelimaa.lisaa_reitti("1", koodilaakso)
+    muistivuoto.lisaa_reitti("1", koodilaakso)
+    roskapostikuilu.lisaa_reitti("1", koodilaakso)
+    return koodilaakso, pixelimaa, muistivuoto, roskapostikuilu
+
+print("1. Uusi peli")
+print("2. Jatka tallennettua peliä")
+valinta = input("Valitse: ")
+
+if valinta == "2":
+   nimi, ika, tallennettu_huone, tavarat = lataa_peli()
+   print("Tallennettu peli ladattu!")
 
 
 nimi = input("\nMikä on pelaajamme nimi?: ")
@@ -17,40 +39,144 @@ if ika < 12:
     print("Olet liian nuori pelaamaan peliä.")
 else:
     print(f'Hauska tavata {nimi}, tervetuloa peliin!')
+
+    pelaaja = Pelaaja(nimi, ika)
+    koodilaakso,pixelimaa,muistivuoto, roskapostikuilu = tee_kartta()
+    tallahetkella_huone = koodilaakso
+    tavarat = ["Kartta"] 
+    avain_loydetty = False
+    kirja_loydetty = False
+    kirje_loydetty = False
     
+        
     komento = ""
-    while komento != "6":
+    while komento != "8":
         print("\nTOIMINNOT")
         print("1. Aloita peli")
         print("2. Lue ohjeet")
         print("3. Tutki ympäristöä")
         print("4. Lisää esine")
         print("5. Näytä inventaario")
-        print("6. Lopeta peli")
+        print("6. Liiku")
+        print("7. Tallenna peli")
+        print("8. Lopeta peli")
+        
+        def aloita_peli():
+            print("Peli alkaa!")
+            print("Tehtäväsi on löytää takaisin kotiin.")
+
+        def lue_ohjeet():
+         with open ("ohjeet.txt", "r") as file:
+             print(file.read())
+        
+    
+        def tutki_huone(huone):
+           print("\n"+ huone.nimi)
+           print(huone.kuvaus)
+           for esine in huone.esineet:
+              print("Huoneessa on:", esine.nimi)
+
+        def tallenna_peli(pelaaja, huone, tavarat):
+           file = open ("tallenna.txt", "w")
+              
+           file.write(pelaaja.nimi + "\n")
+           file.write(f'{pelaaja.ika}\n')
+           file.write(huone.nimi + "\n")
+        
+           for tavara in tavarat:
+               file.write(tavara + "\n")
+
+        def lataa_peli():
+            with open("tallenna.txt", "r") as file:
+             tiedot = file.read()
+
+            for rivi in file:
+             tiedot.append(rivi)
+             nimi = tiedot
+             ika = int(tiedot[1])
+             huone = tiedot[2]
+             tavarat = tiedot[3:]
+        
+        import json
+        def lataa_peli():
+            with open("tallenna.txt", "r") as file:
+            # tiedot = file.read()
+             tiedot = json.load(file)
+             return tiedot["nimi"], tiedot["ika"], tiedot["huone"], tiedot["tavarat"]
+        print("Peli on tallennettu!")
+
 
         komento=input("Minkä toiminnon valitset?: ")
         if komento == "1":
             aloita_peli()
+        
         elif komento == "2":
-            print(ohjeet)
+            lue_ohjeet()
+        
         elif komento == "3":
-            print("Tutkit ympäristöä.")
+            print(tallahetkella_huone.nimi)
+            print(tallahetkella_huone.kuvaus)
+            
+            for item in tallahetkella_huone.esineet:
+              print("Huoneessa on " + item.nimi)
+        
         elif komento == "4":
-            print(lisaa_tavarat)
+            tavara = input("Minkälaisen esineen haluaisit lisätä tämän kerran?")
+            tavarat.append(tavara)
+        
         elif komento == "5":
-             print(inventaario)
+            print("Vau! Olet löytänyt monta esinettä, inventaariosi sisältää: ")
+            for t in tavarat:
+                print("-" + t)
+        
         elif komento == "6":
-            print("Peli lopetetaan.")
-        else:
-            print("Virheellinen komento.")
+            print("Minne haluaisit mennä?")
+            if tallahetkella_huone == koodilaakso:
+             print("1. Pixelimaa")
+             print("2. Muistivuoto")
+             print("3. Roskapostikuilu")
+             print("4. Koodilaakso")
+            reitti = input("Valitse reitti: ")
 
-def lisaa_tavara(tavarat):
-    tavara = input ("Minkälaisen esineen haluaisit lisätä tämän kerran? ")
-    tavarat.append(tavara)
-    return
-tavarat = ["Kirja", "Kirje"]        
-def inventaario(tavarat):
-    print("Vau! Olet löytänyt monta esinettä, inventaariosi sisältää:")
-    for t in tavarat:
-        print("-" + t)
-        return
+            if reitti == "1":
+                tallahetkella_huone = pixelimaa
+                print("Olet menossa Pixelimaahan.")
+                if avain_loydetty == False:
+                 tavarat.append("Avain")
+                 avain_loydetty = True
+                 print("Löysit Avaimen! Se lisättiin inventaarioon.")
+            
+            elif reitti == "2":
+                tallahetkella_huone = muistivuoto
+                print("Olet menossa Muistivuotoon.")
+                if kirja_loydetty == False:
+                 tavarat.append("Kirja")
+                 kirja_loydetty = True
+                 print("Löysit Kirjan! Se lisättiin inventaarioon.")
+            
+            elif reitti == "3":
+                tallahetkella_huone = roskapostikuilu
+                print("Olet menossa Roskapostikuiluun.")
+                if kirje_loydetty == False:
+                 tavarat.append("Kirje")
+                 kirje_loydetty = True
+                 print("Löysit Kirjeen! Se lisättiin inventaarioon.")
+            
+            elif reitti == "4":
+                tallahetkella_huone = koodilaakso
+                print("Menit takaisin koodilaaksoon.")
+
+                if avain_loydetty == True and kirja_loydetty == True and kirje_loydetty == True:
+                 print("Olet löytänyt kaikki tarvittavat esineet jotka olivat: Avain, Kirja ja Kirje!")
+                 print("WOW, löysit tien takaisin kotiin!")
+                 print("VOITIN PELIN!")
+
+        elif komento == "7":
+            tallenna_peli(pelaaja, tallahetkella_huone, tavarat)
+        
+        elif komento == "8":
+         print("Peli lopetetaan.")
+        else:
+         print("Virheellinen komento")
+
+            
