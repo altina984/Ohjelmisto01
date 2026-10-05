@@ -1,25 +1,6 @@
 # Ohjelmisto 1 - Python harjoitukset
 **Altina Krasniqi**
 
-## Moduuli 1
-Tein tehtävät 1 ja melkein sain tehtyä myös 2 tehtävän.
-
-## Moduuli 2
-Tein tehtävät 2 loppuun ja aloitin tehtävän 3.
-
-## Moduuli 3
-Tein tehtävän 3 ja 4, oli hieman haastavaa löytää peliini nimi. 
-
-## Moduuli 4
-Tein tehtävät 5 ja 6, mielestäni 5 viimeinen tehtävä oli vaikea sekä myös hieman 6 tehtävät.
-
-## Moduuli 5 
-Tein tehtävät 7 mielestäni olivat hieman haastavia. 
-
-## Moduuli 6
-Tein tehtävät 8 mielestäni olivat helpompia kuin aikaisemmat.
-
-
 
 
 ## Muistiinpanot kaikista tunneista
