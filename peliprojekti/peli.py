@@ -3,11 +3,13 @@ from huone import Huone
 from esine import Esine
 
 with open ("intro.txt", "r") as file:
- log_in= file.read()
- print(log_in)
+    log_in= file.read()
+    print(log_in)
 
-avain = Esine("Avain","sininen avain jossa on tähti", 0.1)
-kartta = Esine("Kartta","kartta on täynnä reittejä", 0.2)  
+avain = Esine("Avain","Sininen avain jossa on tähti.", '15g')
+# kartta = Esine("Kartta","kartta on täynnä reittejä.", 50,'g') 
+kirja = Esine("Kirja", "Kirjassa lukee miten päästä pois muistivuodolta.", '500g' ) 
+kirje = Esine("Kirje", "joka on hukkunut roskaposteihin ja siinä on tärkeää tietoa.", '40g')
 
 def tee_kartta():
     koodilaakso = Huone("Koodilaakso","Olet keskellä Koodilaakso.")
@@ -68,7 +70,11 @@ else:
         def lue_ohjeet():
          with open ("ohjeet.txt", "r") as file:
              print(file.read())
-        
+
+        def tutki_esine(esine):
+           print("Esine:", esine.nimi)
+           print("Kuvaus:", esine.kuvaus)
+           print("Paino:", esine.paino)
     
         def tutki_huone(huone):
            print("\n"+ huone.nimi)
@@ -100,8 +106,7 @@ else:
         import json
         def lataa_peli():
             with open("tallenna.txt", "r") as file:
-            # tiedot = file.read()
-             tiedot = json.load(file)
+             tiedot = file.read()
              return tiedot["nimi"], tiedot["ika"], tiedot["huone"], tiedot["tavarat"]
         print("Peli on tallennettu!")
 
@@ -145,7 +150,9 @@ else:
                  tavarat.append("Avain")
                  avain_loydetty = True
                  print("Löysit Avaimen! Se lisättiin inventaarioon.")
-            
+                 print(avain.kuvaus)
+                 print("Paino:", avain.paino)
+
             elif reitti == "2":
                 tallahetkella_huone = muistivuoto
                 print("Olet menossa Muistivuotoon.")
@@ -153,6 +160,8 @@ else:
                  tavarat.append("Kirja")
                  kirja_loydetty = True
                  print("Löysit Kirjan! Se lisättiin inventaarioon.")
+                 print(kirja.kuvaus)
+                 print("Paino:", kirja.paino)
             
             elif reitti == "3":
                 tallahetkella_huone = roskapostikuilu
@@ -161,6 +170,8 @@ else:
                  tavarat.append("Kirje")
                  kirje_loydetty = True
                  print("Löysit Kirjeen! Se lisättiin inventaarioon.")
+                 print(kirje.kuvaus)
+                 print("Paino:", kirje.paino)
             
             elif reitti == "4":
                 tallahetkella_huone = koodilaakso
